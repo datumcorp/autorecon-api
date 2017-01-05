@@ -1,4 +1,15 @@
-# Autorecon API
+# Automated & Collaborative Reconciliation System (ACRS)
+
+*Introducing ACRS*
+ACRS (pronounced as acres) is an Automated & Collaborative Reconciliation System designed to make life easier
+
+Suitable for any companies (especially insurance brokers) that have plenty of transactions to reconcile with their banks or creditors (insurers)
+
+>[Automated & Collaborative Reconciliation System](https://www.datumcorp.com/automated-collaborative-reconciliation-system/)
+
+## Autorecon API
+
+Autorecon API is a platform to quickly upload transactional data to ACRS awaiting reconciliation.
 
 ## Get Token
 
@@ -7,7 +18,7 @@
 * Retrieve a token specific to the profile.
 * When calling `[POST] /process`, the token must be included for authorization.
 * User needed to be logged in to retrieve the token.
-* 
+
 
 ## FTP file to process
 
@@ -30,132 +41,132 @@
         "Doc_Date": {
             "type": "string",
             "required": true,
-            "importAs": 'date',
+            "importAs": "date",
             "format": "MM/DD/YYYY",
             "map": "date1" 
         },
         "Doc_Ref": {
             "type": "string",
             "required": true,
-            "importAs": 'string',
+            "importAs": "string",
             "map": "text1" 
         },
         "PYM_RCP_No": {
             "type": "string",
             "required": true,
-            "importAs": 'string',
+            "importAs": "string",
             "map": "text2" 
         },
         "Insurer": {
             "type": "string",
             "required": true,
-            "importAs": 'string',
+            "importAs": "string",
             "map": "text3" 
         },
         "Cover_No": {
             "type": "string",
             "required": true,
-            "importAs": 'string',
+            "importAs": "string",
             "map": "text4" 
         },
         "Policy_No": {
             "type": "string",
             "required": true,
-            "importAs": 'string',
+            "importAs": "string",
             "map": "text5" 
         },
         "Ref_No": {
             "type": "string",
             "required": true,
-            "importAs": 'string',
+            "importAs": "string",
             "map": "text6" 
         },
         "Producer": {
             "type": "string",
             "required": true,
-            "importAs": 'string',
+            "importAs": "string",
             "map": "text7" 
         },
         "Inception_Date": {
             "type": "string",
             "required": true,
-            "importAs": 'date',
+            "importAs": "date",
             "format": "MM/DD/YYYY",
             "map": "date2" 
         },
         "Client": {
             "type": "string",
             "required": true,
-            "importAs": 'string',
+            "importAs": "string",
             "map": "text8" 
         },
         "Gross_Prm": {
             "type": "number",
             "required": true,
-            "importAs": 'number',
+            "importAs": "number",
             "format": "0.00",
             "map": "num1" 
         },
         "Gross_Brkg": {
             "type": "number",
             "required": true,
-            "importAs": 'number',
+            "importAs": "number",
             "format": "0.00",
             "map": "num2" 
         },
         "Brkg_GST": {
             "type": "number",
             "required": true,
-            "importAs": 'number',
+            "importAs": "number",
             "format": "0.00",
             "map": "num3" 
         },
         "Discount": {
             "type": "number",
             "required": true,
-            "importAs": 'number',
+            "importAs": "number",
             "format": "0.00",
             "map": "num4" 
         },
         "Stamp_Duty": {
             "type": "number",
             "required": true,
-            "importAs": 'number',
+            "importAs": "number",
             "format": "0.00",
             "map": "num5" 
         },
         "Bank": {
             "type": "number",
             "required": true,
-            "importAs": 'number',
+            "importAs": "number",
             "format": "0.00",
             "map": "num6" 
         },
         "Others": {
             "type": "number",
             "required": true,
-            "importAs": 'number',
+            "importAs": "number",
             "format": "0.00",
             "map": "num7" 
         },
         "Nett_Prm": {
             "type": "number",
             "required": true,
-            "importAs": 'number',
+            "importAs": "number",
             "format": "0.00",
             "map": "num8" 
         },
         "STax": {
             "type": "number",
             "required": true,
-            "importAs": 'number',
+            "importAs": "number",
             "format": "0.00",
             "map": "num9" 
         },
         "Amount": {
             "type": "number",
             "required": true,
-            "importAs": 'number',
+            "importAs": "number",
             "format": "0.00",
             "map": "num10" 
         }
