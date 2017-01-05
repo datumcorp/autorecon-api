@@ -11,7 +11,7 @@ Suitable for any companies (especially insurance brokers) that have plenty of tr
 
 Autorecon API is a platform to quickly upload transactional data to ACRS awaiting reconciliation.
 
-## Get Token
+### Get Token
 
 [GET] /token/:profilename
 
@@ -20,16 +20,17 @@ Autorecon API is a platform to quickly upload transactional data to ACRS awaitin
 * User needed to be logged in to retrieve the token.
 
 
-## FTP file to process
+### File preparation
 
-### file format
+#### file format
 * Support multiple formats 
 * Supported formats:
     - json -> *.json
     - csv (comma separated volume) -> *.csv
     - excel -> *.xls, *.xlsx
     - xml -> *.xml
-### data format
+
+#### data format
 
 * json:
     - all dates are in ISO8601 standard e.g. 2013-02-04T22:44:30.652Z
@@ -263,7 +264,7 @@ Doc_Date,Doc_Ref,PYM_RCP_No,Insurer,Cover_No,Policy_No,Ref_No,Producer,Inception
 </data>
 ```
 
-## Process file
+### Process file
 
 [POST] /process/:token?profile={profile}&refid={refid}
 
