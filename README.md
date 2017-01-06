@@ -13,11 +13,59 @@ Autorecon API is a platform to quickly upload transactional data to ACRS awaitin
 
 ### Get Token
 
-[GET] /token/:profilename
-
-* Retrieve a token specific to the profile.
 * When calling `[POST] /process`, the token must be included for authorization.
 * User needed to be logged in to retrieve the token.
+
+[GET] /token/:profileid
+
+* Retrieve a list token specific to the profile by the specified `profileid`.
+* Returns an array of token object
+```json
+{
+  "data": [
+    {
+      "id": "75c9a94e-8500-41be-8827-2cf784a32883",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyZWNvbiIsIm5iZiI6MTUxNTIxMjk0MSwiaWF0IjoxNTE1MjEyOTQxLCJleHAiOjE1MTUyMTI5NDEsImp0aSI6IjFhNGJiNmIyYWZjODA0NWNhMGU2MDdlNTg5YzI0NTQ4MWQzY2MyM2U3YWU2Nzk2MzcyNzJiNjlkZTE5OWVmM2MiLCJwcm9maWxlbmFtZSI6IlNJQiIsInByb2ZpbGVpZCI6M30.MqKIVO08bOLzk8CAx8MeEDlGTqN98fjoZuVXl5topIw",
+      "profilename": "SIB",
+      "profileid": 3,
+      "active": true,
+      "cts": "2017-01-06T04:29:01.224Z",
+      "uts": "2017-01-06T04:29:01.224Z",
+      "expdt": "2018-01-06T04:29:01.199Z"
+    },
+    ...
+  ],
+  "msg": 0
+}
+```
+
+[POST] /token/:profileid?days=365
+
+* Create a token for the `profileid` parameter specified, valid for how many days specified by `days` querystring
+* If `days` querystring is not provided, the token by default would be valid for 365 days.
+* returns a token object
+```json
+{
+  "data": [
+    {
+      "id": "ab380bfc-f91a-4048-9833-fb0385c2ad8a",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyZWNvbiIsIm5iZiI6MTUxNTIxMzU1MSwiaWF0IjoxNTE1MjEzNTUxLCJleHAiOjE1MTUyMTM1NTEsImp0aSI6IjU1MGJlOWQ5MTU5OWIxYmIyMzQ0ZTAyOWZiYmNiYWE3NWM0ZTkwNzc3NzlmZTg0ODNjZDA4NTcwNGI1ZDBjODYiLCJwcm9maWxlbmFtZSI6IlNJQiIsInByb2ZpbGVpZCI6M30.uQZk6jhFC3Bd4AeWr-e5nBgrjKhAIFaOPQYcv7uZd1s",
+      "profilename": "SIB",
+      "profileid": 3,
+      "active": true,
+      "cts": "2017-01-06T04:39:11.312Z",
+      "uts": "2017-01-06T04:39:11.312Z",
+      "expdt": "2018-01-06T04:39:11.283Z"
+    }
+  ],
+  "msg": 0
+}
+```
+
+[DELETE] /token/:tokenid
+
+* Revokes the validity of a token specified by the `tokenid` paramenter. The token in question will no longer be valid even though it is not yet expired.
+* Returns an empty json if successful
 
 
 ### File preparation
