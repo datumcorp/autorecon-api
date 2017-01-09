@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+	<row>
+		<Doc_Date>09/01/2016</Doc_Date>
+		<Doc_Ref>33ME48</Doc_Ref>
+		<PYM_RCP_No>AAA128</PYM_RCP_No>
+		<Insurer>DET</Insurer>
+		<Cover_No>BBB128</Cover_No>
+		<Policy_No>G1035222</Policy_No>
+		<Ref_No>REF0128</Ref_No>
+		<Producer>P17</Producer>
+		<Inception_Date>09/01/2016</Inception_Date>
+		<Client>SAMPLE SDN BHD</Client>
+		<Gross_Prm>14394</Gross_Prm>
+		<Gross_Brkg>1439.4</Gross_Brkg>
+		<Brkg_GST>86.36</Brkg_GST>
+		<Discount>0</Discount>
+		<Stamp_Duty>10</Stamp_Duty>
+		<Bank>0</Bank>
+		<Others>0</Others>
+		<Nett_Prm>12878.24</Nett_Prm>
+		<STax>863.64</STax>
+		<Amount>234.88</Amount>
+	</row>
+	<row>
+		<Doc_Date>09/01/2016</Doc_Date>
+		<Doc_Ref>33ME49</Doc_Ref>
+		<PYM_RCP_No>AAA1245</PYM_RCP_No>
+		<Insurer>DET</Insurer>
+		<Cover_No>BBB125</Cover_No>
+		<Policy_No>G1035223</Policy_No>
+		<Ref_No>REF0125</Ref_No>
+		<Producer>P17</Producer>
+		<Inception_Date>09/01/2016</Inception_Date>
+		<Client>Caution SDN BHD</Client>
+		<Gross_Prm>14394</Gross_Prm>
+		<Gross_Brkg>1439.4</Gross_Brkg>
+		<Brkg_GST>86.36</Brkg_GST>
+		<Discount>0</Discount>
+		<Stamp_Duty>10</Stamp_Duty>
+		<Bank>0</Bank>
+		<Others>0</Others>
+		<Nett_Prm>12878.24</Nett_Prm>
+		<STax>863.64</STax>
+		<Amount>234.88</Amount>
+	</row>
+	<row>
+		<Doc_Date>09/01/2016</Doc_Date>
+		<Doc_Ref>33ME50</Doc_Ref>
+		<PYM_RCP_No>AAA126</PYM_RCP_No>
+		<Insurer>DET</Insurer>
+		<Cover_No>BBB126</Cover_No>
+		<Policy_No>G1035224</Policy_No>
+		<Ref_No>REF0126</Ref_No>
+		<Producer>P17</Producer>
+		<Inception_Date>09/01/2016</Inception_Date>
+		<Client>SAMPLEQ SDN BHD</Client>
+		<Gross_Prm>14394</Gross_Prm>
+		<Gross_Brkg>1439.4</Gross_Brkg>
+		<Brkg_GST>86.36</Brkg_GST>
+		<Discount>0</Discount>
+		<Stamp_Duty>10</Stamp_Duty>
+		<Bank>0</Bank>
+		<Others>0</Others>
+		<Nett_Prm>12878.24</Nett_Prm>
+		<STax>863.64</STax>
+		<Amount>234.88</Amount>
+	</row>
+</root>
