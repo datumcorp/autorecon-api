@@ -264,7 +264,7 @@ Doc_Date,Doc_Ref,PYM_RCP_No,Insurer,Cover_No,Policy_No,Ref_No,Producer,Inception
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<data>
+<root>
     <row>
         <Doc_Date>08/01/2016</Doc_Date>
         <Doc_Ref>33ME45</Doc_Ref>
@@ -309,7 +309,7 @@ Doc_Date,Doc_Ref,PYM_RCP_No,Insurer,Cover_No,Policy_No,Ref_No,Producer,Inception
         <STax>863.64</STax>
         <Amount>234.88</Amount>
     </row>
-</data>
+</root>
 ```
 
 ### Process file
