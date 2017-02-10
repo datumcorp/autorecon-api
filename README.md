@@ -11,63 +11,6 @@ Suitable for any companies (especially insurance brokers) that have plenty of tr
 
 Autorecon API is a platform to quickly upload transactional data to ACRS awaiting reconciliation.
 
-### Get Token
-
-* When calling `[POST] /process`, the token must be included for authorization.
-* User needed to be logged in to retrieve the token.
-
-[GET] /token/:profileid
-
-* Retrieve a list token specific to the profile by the specified `profileid`.
-* Returns an array of token object
-```json
-{
-  "data": [
-    {
-      "id": "75c9a94e-8500-41be-8827-2cf784a32883",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyZWNvbiIsIm5iZiI6MTUxNTIxMjk0MSwiaWF0IjoxNTE1MjEyOTQxLCJleHAiOjE1MTUyMTI5NDEsImp0aSI6IjFhNGJiNmIyYWZjODA0NWNhMGU2MDdlNTg5YzI0NTQ4MWQzY2MyM2U3YWU2Nzk2MzcyNzJiNjlkZTE5OWVmM2MiLCJwcm9maWxlbmFtZSI6IlNJQiIsInByb2ZpbGVpZCI6M30.MqKIVO08bOLzk8CAx8MeEDlGTqN98fjoZuVXl5topIw",
-      "profilename": "SIB",
-      "profileid": 3,
-      "active": true,
-      "cts": "2017-01-06T04:29:01.224Z",
-      "uts": "2017-01-06T04:29:01.224Z",
-      "expdt": "2018-01-06T04:29:01.199Z"
-    },
-    ...
-  ],
-  "msg": 0
-}
-```
-
-[POST] /token/:profileid?days=365
-
-* Create a token for the `profileid` parameter specified, valid for how many days specified by `days` querystring
-* If `days` querystring is not provided, the token by default would be valid for 365 days.
-* returns a token object
-```json
-{
-  "data": [
-    {
-      "id": "ab380bfc-f91a-4048-9833-fb0385c2ad8a",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJyZWNvbiIsIm5iZiI6MTUxNTIxMzU1MSwiaWF0IjoxNTE1MjEzNTUxLCJleHAiOjE1MTUyMTM1NTEsImp0aSI6IjU1MGJlOWQ5MTU5OWIxYmIyMzQ0ZTAyOWZiYmNiYWE3NWM0ZTkwNzc3NzlmZTg0ODNjZDA4NTcwNGI1ZDBjODYiLCJwcm9maWxlbmFtZSI6IlNJQiIsInByb2ZpbGVpZCI6M30.uQZk6jhFC3Bd4AeWr-e5nBgrjKhAIFaOPQYcv7uZd1s",
-      "profilename": "SIB",
-      "profileid": 3,
-      "active": true,
-      "cts": "2017-01-06T04:39:11.312Z",
-      "uts": "2017-01-06T04:39:11.312Z",
-      "expdt": "2018-01-06T04:39:11.283Z"
-    }
-  ],
-  "msg": 0
-}
-```
-
-[DELETE] /token/:tokenid
-
-* Revokes the validity of a token specified by the `tokenid` paramenter. The token in question will no longer be valid even though it is not yet expired.
-* Returns an empty json if successful
-
-
 ### File preparation
 
 #### file format
@@ -238,16 +181,16 @@ Autorecon API is a platform to quickly upload transactional data to ACRS awaitin
       "Producer": "P17",
       "Inception_Date": "08/01/2016",
       "Client": "SAMPLE SDN BHD",
-      "Gross_Prm": "14394",
-      "Gross_Brkg": "1439.4",
-      "Brkg_GST": "86.36",
-      "Discount": "0",
-      "Stamp_Duty": "10",
-      "Bank": "0",
-      "Others": "0",
-      "Nett_Prm": "12878.24",
-      "STax": "863.64",
-      "Amount": "234.88"
+      "Gross_Prm": 14394,
+      "Gross_Brkg": 1439.4,
+      "Brkg_GST": 86.36,
+      "Discount": 0,
+      "Stamp_Duty": 10,
+      "Bank": 0,
+      "Others": 0,
+      "Nett_Prm": 12878.24,
+      "STax": 863.64,
+      "Amount": 234.88
     }
 ]
 ```
@@ -314,16 +257,33 @@ Doc_Date,Doc_Ref,PYM_RCP_No,Insurer,Cover_No,Policy_No,Ref_No,Producer,Inception
 
 ### Process file
 
-[POST] /process/:token?profile={profile}&refid={refid}
+[POST] !importer/process/:profileid?refid={refid}
 
+header => "token": {token}
+
+* headers:
+    - token => security token. Need to request first while logged in into the system
 * params:
-    - :token => security token. Need to request first while logged in into the system
+    - :profileid => id of the profile in use. The token used must match the profile it is assigned to.
 * Query string:
-    - profile => profile name to use
     - refid => (optional) If refid is provided, then the imported data will be appended to the to the same existing refid
+    - complete => (optional) flag to mark that this upload is the last of the batch.
 * Verify token is valid for security purposes
 * Will pickup the provided filename to process
 * The data will be imported to db
 
+### Set a batch as complete
+
+[PUT] !importer/process/:profileid?refid={refid}&complete=true
+
+Set a refid as completed without uploading anything
+
+* headers:
+    - token => security token. Need to request first while logged in into the system
+* params:
+    - :profileid => id of the profile in use. The token used must match the profile it is assigned to.
+* Query string:
+    - refid => The refid in question
+    - complete => (optional) flag to mark that this refid is the last of the batch.
 
 
