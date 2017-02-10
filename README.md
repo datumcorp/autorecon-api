@@ -272,7 +272,7 @@ header => "token": {token}
 * Will pickup the provided filename to process
 * The data will be imported to db
 
-### Set a batch as complete
+### Set a batch as partial or complete
 
 [PUT] !importer/process/:profileid?refid={refid}&complete=true
 
